@@ -10,4 +10,8 @@ return {
         enable = true,
         show_on_dirs = true,
     },
+    filters = {
+        git_ignored = false,
+        dotfiles = false,
+    },
 }
