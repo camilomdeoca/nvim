@@ -1,6 +1,6 @@
 local lspconfig = require'lspconfig'
 
-local servers = { "lua_ls", "tsserver", "clangd", "cssls", "glsl_analyzer"}
+local servers = { "lua_ls", "tsserver", "clangd", "cssls", "glsl_analyzer", "prolog_ls", "html"}
 -- Set up lspconfig.
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
 

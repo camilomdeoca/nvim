@@ -1,4 +1,7 @@
 return {
+    view = {
+        width = 40,
+    },
     renderer = {
         highlight_diagnostics = "name",
         highlight_git = "name",
