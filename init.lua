@@ -21,6 +21,9 @@ vim.opt.clipboard = "unnamedplus" -- Yank to system clipboard
 vim.opt.termguicolors = true -- 24bit rgb colors in the tui
 vim.opt.colorcolumn = "100" -- Set max column width marker
 vim.opt.mousemoveevent = true -- Enable mouse move events
+vim.opt.foldmethod = "marker"
+
+vim.diagnostic.config { update_in_insert = true }
 
 -- install lazy.nvim (if needed)
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"

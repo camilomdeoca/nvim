@@ -129,18 +129,18 @@ local plugins = {
         dependencies = {
             { "L3MON4D3/LuaSnip" },
 
-            -- autopairing of (){}[] etc
-            {
-                "windwp/nvim-autopairs",
-                opts = {},
-                config = function(_, opts)
-                    require("nvim-autopairs").setup(opts)
+            -- -- autopairing of (){}[] etc
+            -- {
+            --     "windwp/nvim-autopairs",
+            --     opts = {},
+            --     config = function(_, opts)
+            --         require("nvim-autopairs").setup(opts)
 
-                    -- setup cmp for autopairs
-                    local cmp_autopairs = require "nvim-autopairs.completion.cmp"
-                    require("cmp").event:on("confirm_done", cmp_autopairs.on_confirm_done())
-                end,
-            },
+            --         -- setup cmp for autopairs
+            --         local cmp_autopairs = require "nvim-autopairs.completion.cmp"
+            --         require("cmp").event:on("confirm_done", cmp_autopairs.on_confirm_done())
+            --     end,
+            -- },
 
             -- cmp sources plugins
             {
@@ -177,6 +177,9 @@ local plugins = {
         end,
         cmd = "WhichKey",
         opts = {}
+    },
+    {
+        "nmac427/guess-indent.nvim",
     },
     { "Mofiqul/vscode.nvim", priority = 100, config = function () require "colorscheme" end },
     { "kepano/flexoki-neovim" },

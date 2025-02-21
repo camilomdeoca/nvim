@@ -5,8 +5,8 @@ vim.g.mapleader = " "
 
 -- Buffer movement
 local bl = require("bufferline")
-vim.keymap.set('n', '<S-i>', function() bl.cycle(1) end, { desc = 'Next buffer' })
-vim.keymap.set('n', '<S-u>', function() bl.cycle(-1) end, { desc = 'Prev buffer' })
+vim.keymap.set('n', 'gt', function() bl.cycle(1) end, { desc = 'Next buffer' })
+vim.keymap.set('n', 'gT', function() bl.cycle(-1) end, { desc = 'Prev buffer' })
 vim.keymap.set('n', '<S-C-i>', function() bl.move(1) end, { desc = 'Move buffer right' })
 vim.keymap.set('n', '<S-C-u>', function() bl.move(-1) end, { desc = 'Move buffer left' })
 
