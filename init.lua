@@ -17,13 +17,19 @@ vim.opt.breakindent = true -- the wrapped text is indented to the same level of 
 vim.opt.tabstop = 4 -- how many characters does a tab occupy
 vim.opt.shiftwidth = 4 -- with how many characters nvim will indent a line
 vim.opt.expandtab = true -- Nvim will use spaces instead of tabs
-vim.opt.clipboard = "unnamedplus" -- Yank to system clipboard
+--vim.opt.clipboard = "unnamedplus" -- Yank to system clipboard
 vim.opt.termguicolors = true -- 24bit rgb colors in the tui
 vim.opt.colorcolumn = "100" -- Set max column width marker
 vim.opt.mousemoveevent = true -- Enable mouse move events
-vim.opt.foldmethod = "marker"
+vim.opt.foldmethod = "expr" -- "marker"
+vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
+vim.opt.foldlevelstart = 99
+vim.opt.wrap = false
 
-vim.diagnostic.config { update_in_insert = true }
+vim.diagnostic.config {
+    virtual_text = true,
+    update_in_insert = true,
+}
 
 -- install lazy.nvim (if needed)
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
@@ -40,7 +46,7 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require "plugins"
-require "colors"
+--require "colors"
 require "mappings"
 
 

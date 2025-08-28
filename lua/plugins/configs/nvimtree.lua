@@ -1,6 +1,7 @@
 return {
     view = {
         width = 40,
+        side = "right",
     },
     renderer = {
         highlight_diagnostics = "name",
