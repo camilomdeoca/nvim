@@ -1,7 +1,7 @@
 vim.g.mapleader = " "
 
 -- General
---vim.keymap.set('n', '<space>w', '<cmd>write<cr>', { desc = 'Save' }) -- Space + w to save
+vim.keymap.set('n', '<space>w', '<cmd>write<cr>', { desc = 'Save' }) -- Space + w to save
 
 -- Buffer movement
 local bl = require("bufferline")

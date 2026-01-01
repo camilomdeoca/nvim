@@ -4,26 +4,30 @@ local servers = {
     "lua_ls",
     "ts_ls",
     "clangd",
-    "cssls",
+    -- "cssls",
     "glsl_analyzer",
-    "prolog_ls",
+    -- "prolog_ls",
     "html",
     "rust_analyzer",
     "pyright",
+    "opencl_ls",
+    "tailwindcss",
+    "eslint",
+    "cobol_ls",
 }
 -- Set up lspconfig.
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
 for _, lsp in ipairs(servers) do
-  lspconfig[lsp].setup {
+  vim.lsp.config(lsp, {
     capabilities = capabilities,
-  }
+  })
 end
 
-lspconfig.angularls.setup {
-  root_dir = lspconfig.util.root_pattern("angular.json", "project.json"), -- This is for monorepo's
-  filetypes = { "angular", "html", "typescript", "typescriptreact" },
-  capabilities = capabilities,
-}
+-- vim.lsp.config("angularls", {
+--   root_dir = lspconfig.util.root_pattern("angular.json", "project.json"), -- This is for monorepo's
+--   filetypes = { "angular", "html", "typescript", "typescriptreact" },
+--   capabilities = capabilities,
+-- })
 
 

@@ -189,6 +189,9 @@ local plugins = {
     },
     {
         "nmac427/guess-indent.nvim",
+        config = function (_, opts)
+            require("guess-indent").setup {}
+        end,
     },
     { "Mofiqul/vscode.nvim", priority = 100, config = function () require "colorscheme" end },
     { "kepano/flexoki-neovim" },
