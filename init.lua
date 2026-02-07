@@ -24,7 +24,8 @@ vim.opt.mousemoveevent = true -- Enable mouse move events
 vim.opt.foldmethod = "expr" -- "marker"
 vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
 vim.opt.foldlevelstart = 99
-vim.opt.wrap = false
+vim.opt.wrap = true
+vim.o.autoread = true
 
 vim.diagnostic.config {
     virtual_text = true,
