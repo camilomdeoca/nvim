@@ -2,10 +2,10 @@ local plugins = {
     {
         "nvim-lualine/lualine.nvim",
         dependencies = { "nvim-tree/nvim-web-devicons" },
-        opts = function ()
-            require("plugins.configs.lualine")
+        opts = function()
+            return require("plugins.configs.lualine")
         end,
-        config = function (_, opts)
+        config = function(_, opts)
             require("lualine").setup(opts)
         end,
     },
@@ -176,6 +176,22 @@ local plugins = {
         config = function (_, opts)
             require("nvim-tree").setup(opts)
         end
+    },
+    {
+        "mfussenegger/nvim-dap",
+        config = function()
+            require("plugins.configs.plugin_dap")
+        end,
+    },
+    {
+        "rcarriga/nvim-dap-ui",
+        dependencies = {"mfussenegger/nvim-dap", "nvim-neotest/nvim-nio"},
+        opts = function()
+            return require("plugins.configs.plugin_dapui")
+        end,
+        config = function(_, opts)
+            require("dapui").setup(opts)
+        end,
     },
     {
         "folke/which-key.nvim",
