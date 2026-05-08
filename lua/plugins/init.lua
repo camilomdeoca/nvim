@@ -3,7 +3,7 @@ local plugins = {
         "nvim-lualine/lualine.nvim",
         dependencies = { "nvim-tree/nvim-web-devicons" },
         opts = function()
-            return require("plugins.configs.lualine")
+            return require("plugins.configs.plugin_lualine")
         end,
         config = function(_, opts)
             require("lualine").setup(opts)
@@ -14,7 +14,7 @@ local plugins = {
         dependencies = { "williamboman/mason-lspconfig.nvim" },
         cmd = { "Mason", "MasonInstall", "MasonUpdate" },
         opts = function ()
-            return require("plugins.configs.mason")
+            return require("plugins.configs.plugin_mason")
         end,
         config = function (_, opts)
             require("mason").setup(opts)
@@ -31,27 +31,37 @@ local plugins = {
     {
         "lukas-reineke/indent-blankline.nvim",
         opts = function ()
-            return require("plugins.configs.ibl")
+            return require("plugins.configs.plugin_ibl")
         end,
         config = function (_, opts)
             require("ibl").setup(opts)
         end,
         main = "ibl",
     },
+    -- {
+    --     "nvim-treesitter/nvim-treesitter",
+    --     dependencies = {},
+    --     opts = function ()
+    --         return require("plugins.configs.treesitter")
+    --     end,
+    --     config = function (_, opts)
+    --         require("nvim-treesitter").setup(opts)
+    --     end,
+    -- },
     {
-        "nvim-treesitter/nvim-treesitter",
-        dependencies = {},
-        opts = function ()
-            return require("plugins.configs.treesitter")
-        end,
-        config = function (_, opts)
-            require("nvim-treesitter.configs").setup(opts)
-        end,
+      "romus204/tree-sitter-manager.nvim",
+      dependencies = {}, -- tree-sitter CLI must be installed system-wide
+      opts = function ()
+          return require("plugins.configs.plugin_tree-sitter-manager")
+      end,
+      config = function()
+        require("tree-sitter-manager").setup()
+      end
     },
     {
         "HiPhish/rainbow-delimiters.nvim",
         opts = function ()
-            return require("plugins.configs.rainbowdelimiters")
+            return require("plugins.configs.plugin_rainbow-delimiters")
         end,
         config = function (_, opts)
             --require("rainbow-delimiters.setup").setup(opts)
@@ -80,22 +90,22 @@ local plugins = {
         "akinsho/bufferline.nvim",
         dependencies = "nvim-tree/nvim-web-devicons",
         opts = function ()
-            return require("plugins.configs.bufferline")
+            return require("plugins.configs.plugin_bufferline")
         end,
         config = function (_, opts)
             require("bufferline").setup(opts)
         end,
     },
     {
-        "norcalli/nvim-colorizer.lua",
+        "brenoprata10/nvim-highlight-colors",
         config = function ()
-            require("colorizer").setup()
+            require("nvim-highlight-colors").setup({})
         end
     },
     {
         "lewis6991/gitsigns.nvim",
         opts = function ()
-            return require("plugins.configs.gitsigns")
+            return require("plugins.configs.plugin_gitsigns")
         end,
         config = function (_, opts)
             require("gitsigns").setup(opts)
@@ -105,7 +115,7 @@ local plugins = {
         'nvim-telescope/telescope.nvim', branch = '0.1.x',
         dependencies = { 'nvim-lua/plenary.nvim' },
         opts = function ()
-            return require("plugins.configs.telescope")
+            return require("plugins.configs.plugin_telescope")
         end,
         config = function (_, opts)
             require("telescope").setup(opts)
@@ -118,8 +128,8 @@ local plugins = {
         -- snippet plugin
         "L3MON4D3/LuaSnip",
         dependencies = { "rafamadriz/friendly-snippets" },
-        config = function(_, opts)
-            require("plugins.configs.luasnip")
+        config = function()
+            require("plugins.configs.plugin_luasnip")
         end,
     },
     {
@@ -161,7 +171,7 @@ local plugins = {
             },
         },
         opts = function()
-            return require("plugins.configs.cmp")
+            return require("plugins.configs.plugin_nvim-cmp")
         end,
         config = function(_, opts)
             require("cmp").setup(opts)
@@ -205,7 +215,7 @@ local plugins = {
     },
     {
         "nmac427/guess-indent.nvim",
-        config = function (_, opts)
+        config = function (_)
             require("guess-indent").setup {}
         end,
     },

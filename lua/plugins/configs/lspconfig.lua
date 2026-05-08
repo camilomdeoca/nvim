@@ -1,5 +1,3 @@
-local lspconfig = require'lspconfig'
-
 local servers = {
     "lua_ls",
     "ts_ls",
