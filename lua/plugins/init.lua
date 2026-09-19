@@ -38,26 +38,26 @@ local plugins = {
         end,
         main = "ibl",
     },
-    -- {
-    --     "nvim-treesitter/nvim-treesitter",
-    --     dependencies = {},
-    --     opts = function ()
-    --         return require("plugins.configs.treesitter")
-    --     end,
-    --     config = function (_, opts)
-    --         require("nvim-treesitter").setup(opts)
-    --     end,
-    -- },
     {
-      "romus204/tree-sitter-manager.nvim",
-      dependencies = {}, -- tree-sitter CLI must be installed system-wide
-      opts = function ()
-          return require("plugins.configs.plugin_tree-sitter-manager")
-      end,
-      config = function()
-        require("tree-sitter-manager").setup()
-      end
+        "nvim-treesitter/nvim-treesitter",
+        dependencies = {},
+        opts = function ()
+            return require("plugins.configs.treesitter")
+        end,
+        config = function (_, opts)
+            require("nvim-treesitter").setup(opts)
+        end,
     },
+    -- {
+    --   "romus204/tree-sitter-manager.nvim",
+    --   dependencies = {}, -- tree-sitter CLI must be installed system-wide
+    --   opts = function ()
+    --       return require("plugins.configs.plugin_tree-sitter-manager")
+    --   end,
+    --   config = function()
+    --     require("tree-sitter-manager").setup()
+    --   end
+    -- },
     {
         "HiPhish/rainbow-delimiters.nvim",
         opts = function ()
@@ -112,7 +112,7 @@ local plugins = {
         end,
     },
     {
-        'nvim-telescope/telescope.nvim', branch = '0.1.x',
+        'nvim-telescope/telescope.nvim',
         dependencies = { 'nvim-lua/plenary.nvim' },
         opts = function ()
             return require("plugins.configs.plugin_telescope")
@@ -191,6 +191,15 @@ local plugins = {
         "mfussenegger/nvim-dap",
         config = function()
             require("plugins.configs.plugin_dap")
+        end,
+    },
+    {
+        "tomtomjhj/coq-lsp.nvim",
+        dependencies = {
+            { "whonore/Coqtail" },
+        },
+        config = function (_, opts)
+            require("coq-lsp").setup(opts)
         end,
     },
     {

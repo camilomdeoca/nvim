@@ -9,9 +9,11 @@ local servers = {
     "rust_analyzer",
     "pyright",
     "opencl_ls",
-    "tailwindcss",
+    -- "tailwindcss",
     "eslint",
     "cobol_ls",
+    -- "coq_lsp",
+    "solidity_ls_nomicfoundation",
 }
 -- Set up lspconfig.
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
